@@ -1,0 +1,49 @@
+\chapter{Discussion and Conclusion}
+\label{ch:evaluation}
+\section{Discussion}
+\subsection{Principal findings}
+The experiment results provide some insights into the impact of model parameters on classification performance. As observed in Table \ref{tab:parameters}, models with more parameters generally achieve better classification accuracy. For instance, BERT, RoBERTa, DeBERTa, and XLNet, which have significantly more parameters than HAN, demonstrate superior performance across various evaluation metrics such as accuracy, precision, recall, F1-score, and AUC. \\
+
+\begin{table}[]
+    \caption{Parameters of each deep model used in the study.}
+    \label{tab:parameters}
+    \centering
+\begin{tabular}{lc}
+\hline
+Model                                         & \multicolumn{1}{l}{Parameters} \\ \hline
+HAN                                           & 2,343,202                      \\
+BERT                                          & 109,483,778                    \\
+RoBERTa                                       & 124,647,170                    \\
+DeBERTa                                       & 139,193,858                    \\
+XLNet                                         & 117,310,466                    \\
+{\color[HTML]{666666} text-embedding-ada-002}    & {\color[HTML]{666666} unknown} \\
+{\color[HTML]{666666} Gemini-embedding} & {\color[HTML]{666666} unknown} \\
+{\color[HTML]{666666} GPT-4}                  & {\color[HTML]{666666} unknown} \\ \hline
+\end{tabular}
+\end{table}
+
+Despite having a lower parameter count than other PLMs, XLNet still achieved better performance among the BERT series in the experiment. This outcome implies that not just the number of parameters but also the model architecture, training process, and optimization techniques are essential in determining classification effectiveness. XLNet's success could be attributed to its permutation language modeling approach, which allows for enhanced bidirectional context understanding while addressing some of the limitations of bidirectional models like BERT.\\
+
+\subsection{LLM-based embedding models}
+Additionally, using LLM-based embedding models exhibits superior performance compared to traditional TF-IDF features. However, accessing embedding models through OpenAI's API needs charges, while the Gemini API only offers limited-time free trials. Although the exact number of parameters for the text-embedding-ada-002 model, Gemini embedding model, and GPT-4 is not formally disclosed, it can be assumed that these models likely have a larger parameter count compared to the other open-source PLMs like BERT, RoBERTa, DeBERTa, and XLNet. In this study, text-embedding-ada-002 performed slightly better than Gemini, possibly due to differences in the length of the embedding vectors. GPT defaults to 1536 dimensions, while Gemini is set at 768. Despite yielding acceptable outcomes, directly using GPT-4 falls short compared to training SVM on vector-transformed training data using embedding models. This suggests that LLMs still benefit from training data in classification tasks. \\
+
+\subsection{Overall}
+The LLM-based embedding models showed remarkable performance in the experiment. However, the fuzzy method can be combined with open-source PLMs to achieve even better results. Moreover, compared to using a single language model or soft voting method with pre-defined weights, the fuzzy fusion-based technique allows for determining ensemble model weights for each test case, resulting in superior performance.\\
+
+The experiment results underscore the importance of model architecture and size in determining classification effectiveness. While smaller models like HAN can still perform well, larger and more parameter-rich models like BERT variants and XLNet demonstrate the potential for even higher accuracy and robustness, given their capability to learn complicated patterns and representations from the textual data via attention mechanism. However, it is worth noting that the computational and resource requirements also increase significantly with larger models. A balance between model complexity and practical feasibility is required in real-world applications.
+
+\subsection{Limitations}
+One limitation of the study is the presence of data imbalance. Although identical samples were removed, the dataset might have included samples of similar misinformation forwarded using different wording. The imbalance in the data also implies a potential bias towards the prevalence of fake information on the internet. Addressing this issue would require gathering a more extensive and up-to-date dataset of genuine information to achieve better balance and representativeness in the training data. \\
+
+Another limitation is the dependence on a single label to categorize content related to long COVID-19. Different health policies in certain countries may restrain this approach, leading to potential misclassification or oversimplification of complicated information. There may need to be more than a single label for classification to accurately differentiate the nuances of such content. The future incorporation of generative AI models like GPT-4 and Llama\cite{b35} could be a game-changer. With appropriate training and fine-tuning, LLMs can learn real-world information, thus offering accurate and detailed content identification. These models have the potential to distinguish between truthful and false segments within an article, improving the usefulness of detecting misinformation related to long COVID and reinfection. This advancement could significantly improve media literacy among the public.
+
+\subsection{Future work}
+Future efforts can involve fine-tuning open-source LLMs like Meta's Llama and the Alpaca model from the Stanford University team\cite{b36} to improve misinformation detection further. These Generative AI (GAI) models have various advantages, particularly their ability to explore deeper than binary classifications of genuine or fake content. Through comprehensive training or fine-tuning, these language models can tell which sections contain accurate or false information within an article.
+Moreover, developing image-text models\cite{b37} becomes important since some social media content involves multimodal information, such as videos and images. Image-text models could combine image and textual inputs, offering a complete approach to misinformation detection. This method can provide more support in real-world situations.\\
+
+Furthermore, data augmentation techniques could provide helpful help during training. Traditional augmentation methods in NLP, such as translations\cite{b38} and innovative augmentations via LLMs\cite{b39}, offer more balanced and diverse training data. These augmentation strategies could enhance the model's robustness and generalization capabilities, improving performance in detecting misinformation.
+
+\section{Conclusion}
+This study used open-source databases and reputable websites to collect textual data concerning long-term COVID and reinfections. Through information engineering techniques, we gained insights into the characteristics of articles and claims about these topics. AI models, including attention-based models and linear classifiers, have shown strength in detecting misleading or inaccurate information, serving as valuable tools for the public to discern between genuine and fake information. Unlike traditional models that treat all parts of the input equally, attention-based models can focus on relevant information while ignoring irrelevant or noisy data. This allows the model to prioritize important features and contextually relevant elements, leading to more accurate predictions. \\
+
+Besides, ensemble methods have demonstrated robust performance by minimizing prediction errors' variance and reducing dispersion. The fuzzy rank-based fusion method with PLMs and the Gompertz function presents a helpful approach to prediction methodologies, offering potential improvements in accuracy and reliability. Moreover, experimental results indicate that training solely on textual content can achieve high prediction performance.

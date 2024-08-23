@@ -1,0 +1,420 @@
+% 如果需要更新, 請email至: wufish@gmail.com
+% 也可以到github留言: https://github.com/coldwufish/NYCU-thesis-template
+
+% 載入會用到的套件, 通常不需要修改這邊的資料
+\input{covers/load_env.tex} 
+
+% 為了看起來比較協調, 目錄的語言改為全部英文 or 全部中文, 中英混雜有點奇怪.
+% 要使用中文目錄可把下面的註解拿掉, 當\toggletrue{toc-use-cn}啟用才會使用中文目錄, 預設使用英文目錄
+%\toggletrue{toc-use-cn}
+
+% --------------------------------------------
+% 在這邊寫自己的資料
+
+% 論文名稱
+\newcommand{\chineseTitle}{基於注意力機制的長新冠假消息辨識模型} %利用基于注意力機制的深度學習模型檢測COVID-19的長期影響假消息
+\newcommand{\englishTitle}{Attention-Based Deep Learning Models for Detecting Long-Term Effects Misinformation of COVID-19}
+
+% 自己的名字
+\newcommand{\studentCnName}{陳建安}
+\newcommand{\studentEnName}{Jian-An Chen} % 書名頁
+\newcommand{\studentEnNameA}{Chen, Jian-An} % 封面用
+% 英文名字有兩種寫法, 一個是姓在後, 一個是放前面. 
+
+% 教授的名字
+\newcommand{\advisorCnName}{洪哲倫}
+\newcommand{\advisorEnName}{Che-Lun Hung}     % 書名頁
+\newcommand{\advisorEnNamex}{Hung, Che-Lun}   % 封面用
+
+% 共同指導教授的名字, 若有再填寫即可
+\newcommand{\advisorCnNameB}{吳俊穎}
+\newcommand{\advisorEnNameB}{Chun-Ying Wu}     % 書名頁
+\newcommand{\advisorEnNameBx}{Wu, Chun-Ying}   % 封面用
+
+
+% 論文的日期
+\newcommand{\ThesisDate}{July 2024}           
+\newcommand{\ThesisDateTW}{中華民國~ 一一三年七月} 
+
+% 博士班就把下方註解拿掉吧!!
+%\toggletrue{iamphd}
+
+% [書名頁] 各學院、系所、學位中文、英文名稱: 
+\newcommand{\CollegeCnName}{醫學院} % 這個其實沒用到, 不過為了一致還是放進來
+\newcommand{\CollegeEnName}{College of Medicine and College of Life Sciences}
+\newcommand{\DepartInstitCnName}{生物醫學資訊研究所} % 系所名稱, 請看下方[說明1]
+\newcommand{\DepartInstitEnName}{Institute of Biomedical Informatics}
+\newcommand{\DegreeName}{Master of Science} % 學位名稱, 常見的是Master of Science, 不過這個有很多寫法, 要記得查學校的資料.
+\newcommand{\ResearchTopic}{Biomedical Informatics} % 研究領域, 請看下方[說明2]
+
+% [說明1]
+% 這邊需要填寫 XX系 or OO所 的名稱
+% 如果你的單位是系所合一, 就用 Department. 如: 土木系碩士班請用 Department
+% 只有所的話, 就用Institute. 如: 電信所請用Institute
+
+
+% [說明2]
+% 書名頁的最後會有 in OOOO 的內容. 這個目前找不到通用性的寫法. 
+% 大家就自行找前人的畢業論文, 看同系所的人是怎麼寫, 就跟他們寫一樣的吧.
+% 不過有些系所不需要寫這個東西, ex: 教育所. 不需要的話就把\ResearchTopic整句刪掉
+
+% 中英文名稱請看學校網站: https://aa.nycu.edu.tw/reg/統計資訊/
+% --------------------------------------------
+
+
+% --------------------------------------------
+% --------------------------------------------
+% 填寫範例-1
+% 博士班範例
+%\toggletrue{iamphd}
+%\newcommand{\CollegeCnName}{電機學院} 
+%\newcommand{\CollegeEnName}{College of Electrical and Computer Engineering}
+%\newcommand{\InstituteCnName}{電信工程研究所}
+%\newcommand{\InstituteEnName}{Institute of Communications Engineering}
+%\newcommand{\DegreeName}{Doctor of Philosophy} 
+%\newcommand{\ResearchTopic}{Electronics and Electrical Engineering}
+
+% 碩士班範例
+%\newcommand{\CollegeCnName}{資訊學院} 
+%\newcommand{\CollegeEnName}{College of Computer Science}
+%\newcommand{\InstituteCnName}{網路工程研究所}
+%\newcommand{\InstituteEnName}{Institute of Network Engineering}
+%\newcommand{\DegreeName}{Master of Science}
+%\newcommand{\ResearchTopic}{Computer Science} 
+% --------------------------------------------
+% --------------------------------------------
+
+
+
+\begin{document}
+\begin{CJK*}{UTF8}{bkai}
+
+% =============================================================
+% 封面的設定, 像是日期之類的 settings for cover 
+\newgeometry{top=3cm,bottom=3cm,left=3cm,right=3cm}
+
+% 1. 第一頁的封面, 記得修改系所
+\input{covers/front_var.tex}        % 論文的封面
+
+% 2. 第二頁的書名頁, 記得修改系所, 日期
+% 目前的浮水印剛好可以把校名&相關資訊包在裡面
+% 如果論文名稱太長的話, 換行之後的外觀就沒那麼漂亮XD 有需要的話可以自行調成inside裡面的字體大小. 
+% 目前是\LARGE, 可以再小一點: \Large, 再小一點: \large
+\input{covers/inside_var.tex}       % 論文的書名頁
+
+
+\restoregeometry
+% =============================================================
+
+% 書名頁起至最後一頁皆須加入浮水印
+\AddToShipoutPicture{
+    \put(-30,0){
+        \parbox[b][\paperheight]{\paperwidth}{%
+            \vfill
+            \centering
+            {\transparent{0.2}\includegraphics[scale=0.6]{covers/logo.png}}%
+            \vfill
+        }
+    }
+}
+
+% =============================================================
+
+% 口試結束後, 會有一些文件(3&5)需要口委們簽名
+% 這邊的東西是最後上傳到圖書館要加入的東西
+% (我當年畢業不需要4 XD)
+
+% 3. 論文電子檔著作權授權書: auth.pdf
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{auth.pdf}
+
+% 4. 博士論文指導教授推薦書(碩士論文免附): phd_recommend.pdf
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{phd_recommend.pdf}
+
+% 5. 學位論文審定同意書(審定書): approval_ch.pdf
+%\includepdf[pages={1},pagecommand={\thispagestyle{empty}}]{approval_ch.pdf}
+
+% =============================================================
+% 目錄設定
+
+\frontmatter
+\pagenumbering{roman}
+{\fontfamily{ptm}\selectfont
+
+\iftoggle{toc-use-cn}
+{ % true section. 使用中文
+\renewcommand{\contentsname}{目錄} % 使用中文目錄
+
+% 下面這些是要在目錄上加入...的符號與頁碼
+\titlecontents{chapter}[0em]{}{第\CJKnumber{\thecontentslabel}章 \hspace{0.5em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
+\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
+% 6. 致謝 Acknowledgement
+\addcontentsline{toc}{chapter}{誌\,\,\,\,\,謝} \input{Sections/0.1.Acknowledgement}\newpage
+
+% 7 中文摘要 chinese abstract
+\addcontentsline{toc}{chapter}{中文摘要} \input{Sections/0.2.Abstract_chinese} \newpage
+
+% 8. 英文摘要
+\addcontentsline{toc}{chapter}{英文摘要} \input{Sections/0.3.Abstract} \newpage
+
+% 9. 目錄 中文版
+\addcontentsline{toc}{chapter}{目錄} \tableofcontents \newpage
+
+% 10. 圖片目錄 中文版
+\renewcommand{\figurename}{圖} % 把caption的Figure改成"圖"
+\renewcommand{\listfigurename}{圖目錄}
+\renewcommand{\numberline}[1]{圖~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{圖目錄\vspace{0em}} \listoffigures \newpage
+
+% 11. 表格目錄 中文版, 有需要再打開
+\renewcommand{\tablename}{表} % 把caption的Table改成"表"
+\renewcommand{\listtablename}{表目錄}
+\renewcommand{\numberline}[1]{表~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{表目錄\vspace{0em}} \listoftables \newpage
+
+% 把Chapter改成 第X章
+\titleformat{\chapter}{\normalfont\huge\bfseries}{第\zhnum{chapter}章、}{0em}{}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+} % true end. 中文目錄設定結束
+% ==========================================
+% ==========================================
+{ % false section. 使用英文目錄
+\renewcommand{\contentsname}{Contents} % 使用英文目錄
+
+
+% 下面這些是要在目錄上加入...的符號與頁碼
+\titlecontents{chapter}[0em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{1em}]
+\titlecontents{section}[1.5em]{\addvspace{-0.5em}}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+\titlecontents{subsection}[3em]{}{\thecontentslabel \hspace{1em}}{}{\titlerule*{.}\contentspage}[\addvspace{0.5em}]
+
+% 6. 致謝 Acknowledgement
+\addcontentsline{toc}{chapter}{Acknowledgement} \input{Sections/0.1.Acknowledgement}\newpage
+
+% 7 中文摘要 chinese abstract
+\addcontentsline{toc}{chapter}{Chinese Abstract} \input{Sections/0.2.Abstract_chinese} \newpage
+
+% 8. english abstract
+\addcontentsline{toc}{chapter}{English Abstract} \input{Sections/0.3.Abstract} \newpage
+
+% 9. 目錄 English version
+\addcontentsline{toc}{chapter}{Contents} \tableofcontents \newpage
+
+% 10. 圖片目錄 English version
+\renewcommand{\numberline}[1]{Figure~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{List of Figures} \listoffigures \newpage
+
+% 11. 表格目錄 English version, 有需要再打開
+\renewcommand{\numberline}[1]{Table~#1\hspace*{1em}}
+\addcontentsline{toc}{chapter}{List of Tables} \listoftables \newpage
+
+% 12. 縮寫目錄 English version
+\chapter*{Abbreviations}
+\addcontentsline{toc}{chapter}{Abbreviations}
+
+\begin{tabular}{ll}
+    \centering
+    Abbreviation & Full Form \\
+    \hline
+    COVID-19 & coronavirus disease 2019 \\
+    WHO&World Health Organization\\
+    PLMs& pre-trained language models\\
+    NLP& natural language processing\\
+    LLMs& large language models\\
+    CTF& COVID-19 Twitter Fake News\\
+    CoAID& Covid-19 heAlthcare mIsinformation Dataset\\
+    FibVID& Fake news information-broadcasting dataset of COVID-19 \\
+    IFCN& International Fact-Checking Network\\
+    CDC& Centers for Disease Control and Prevention\\
+    SVM& Support Vector Machine\\
+    TF-IDF&Term Frequency, Inverse Document Frequency\\
+    HAN& Hierarchical Attention Networks\\
+    BERT& Bidirectional Encoder Representations from Transformers\\
+    RoBERTa& Robustly Optimized BERT Pretraining Approach\\
+    DeBERTa& Decoding-enhanced BERT with disentangled attention\\
+    AUC& Area Under the ROC Curve\\
+    GAI&Generative AI\\
+    SOTA&state-of-the-art\\
+
+\end{tabular}
+\newpage
+
+
+% 調整內文的chapter, section, subection的顯示方式, 改成靠左對齊+沒有換行
+\titleformat{\chapter}{\normalfont\huge\bfseries}{Chapter \thechapter.}{1em}{}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+} % false end. 使用英文
+
+
+\mainmatter
+\pagenumbering{arabic} % enabling page numbering
+
+
+% =========================================================================
+% 12. 論文正文, 可以每個章節一個.tex檔案 (put your statements in the following)
+
+\input{Sections/1.Introduction} \newpage
+\input{Sections/2.Relatedwork} \newpage
+\input{Sections/3.Architecture} \newpage
+\input{Sections/4.Methodology} \newpage
+\input{Sections/5.Evaluation} \newpage
+\input{Sections/6.Conclusion} \newpage
+% =========================================================================
+
+
+% =========================================================================
+% 參考文獻的檔案 Reference file: ref.bib
+%\ClearShipoutPicture % 把ref的浮水印關掉
+
+\iftoggle{toc-use-cn} % 使用中文
+{\addcontentsline{toc}{chapter}{參考文獻}
+\renewcommand{\bibname}{參考文獻} } 
+{\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+} 
+
+\bibliographystyle{IEEEtran}
+\begin{thebibliography}{00}
+\bibitem{b1}“Infodemic.” Accessed: Sep. 28, 2023. [Online]. Available: https://www.who.int/health-topics/infodemic
+\bibitem{b2}H. E. Davis, L. McCorkell, J. M. Vogel, and E. J. Topol, “Long COVID: major findings, mechanisms and recommendations,” Nat. Rev. Microbiol., vol. 21, no. 3, Art. no. 3, Mar. 2023, doi: 10.1038/s41579-022-00846-2.
+\bibitem{b3}B. Bowe, Y. Xie, and Z. Al-Aly, “Acute and postacute sequelae associated with SARS-CoV-2 reinfection,” Nat. Med., vol. 28, no. 11, Art. no. 11, Nov. 2022, doi: 10.1038/s41591-022-02051-3.
+\bibitem{b4}P. Patwa et al., “Fighting an Infodemic: COVID-19 Fake News Dataset,” vol. 1402, 2021, pp. 21–29. doi: 10.1007/978-3-030-73696-5\_3.
+\bibitem{b5}S. D. Das, A. Basak, and S. Dutta, “A Heuristic-driven Ensemble Framework for COVID-19 Fake News Detection.” arXiv, Jan. 10, 2021. doi: 10.48550/arXiv.2101.03545.
+\bibitem{b6}W. S. Paka, R. Bansal, A. Kaushik, S. Sengupta, and T. Chakraborty, “Cross-SEAN: A cross-stitch semi-supervised neural attention model for COVID-19 fake news detection,” Appl. Soft Comput., vol. 107, p. 107393, Aug. 2021, doi: 10.1016/j.asoc.2021.107393.
+\bibitem{b7}C. Yang, X. Zhou, and R. Zafarani, “CHECKED: Chinese COVID-19 fake news dataset,” Soc. Netw. Anal. Min., vol. 11, no. 1, p. 58, Jun. 2021, doi: 10.1007/s13278-021-00766-8.
+\bibitem{b8}“ChatGPT.” Accessed: Oct. 19, 2023. [Online]. Available: https://chat.openai.com
+\bibitem{b9}“covid\_fake\_news/data at main · diptamath/covid\_fake\_news,” GitHub. Accessed: Oct. 18, 2023. [Online]. Available: https://github.com/diptamath/covid\_fake\_news/tree/main/data
+\bibitem{b10}L. Cui and D. Lee, “CoAID: COVID-19 Healthcare Misinformation Dataset.” arXiv, Nov. 03, 2020. doi: 10.48550/arXiv.2006.00885.
+\bibitem{b11}J. Kim, J. Aum, S. Lee, Y. Jang, E. Park, and D. Choi, “FibVID: Comprehensive fake news diffusion dataset during the COVID-19 period,” Telemat. Inform., vol. 64, p. 101688, Nov. 2021, doi: 10.1016/j.tele.2021.101688.
+\bibitem{b12}S. Sharma, E. Agrawal, R. Sharma, and A. Datta, “FaCov: COVID-19 Viral News and Rumors Fact-Check Articles Dataset,” Proc. Int. AAAI Conf. Web Soc. Media, vol. 16, pp. 1312–1321, May 2022, doi: 10.1609/icwsm.v16i1.19383.
+\bibitem{b13}“COVID Archives | Snopes.com.” Accessed: Oct. 19, 2023. [Online]. Available: https://www.snopes.com/tag/covid-19/
+\bibitem{b14}“Fact-checks | PolitiFact.” Accessed: Oct. 19, 2023. [Online]. Available: https://www.politifact.com/factchecks/list/?category=coronavirus
+\bibitem{b15}J. Y. Khan, Md. T. I. Khondaker, S. Afroz, G. Uddin, and A. Iqbal, “A benchmark study of machine learning models for online fake news detection,” Mach. Learn. Appl., vol. 4, p. 100032, Jun. 2021, doi: 10.1016/j.mlwa.2021.100032.
+
+\bibitem{b16}“TextBlob: Simplified Text Processing — TextBlob 0.16.0 documentation.” Accessed: Oct. 12, 2023. [Online]. Available: https://textblob.readthedocs.io/en/dev/
+
+\bibitem{b17}C. Cortes and V. Vapnik, “Support-vector networks,” Mach. Learn., vol. 20, no. 3, pp. 273–297, Sep. 1995, doi: 10.1007/BF00994018.
+
+\bibitem{b18}Y.-C. Lin, S.-A. Chen, J.-J. Liu, and C.-J. Lin, “Linear Classifier: An Often-Forgotten Baseline for Text Classification,” in Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers), Toronto, Canada: Association for Computational Linguistics, Jul. 2023, pp. 1876–1888. doi: 10.18653/v1/2023.acl-short.160.
+
+\bibitem{b19} Abu Salem FK, Al Feel R, Elbassuoni S, Ghannam H, Jaber M, Farah M. Meta-learning for fake news detection surrounding the Syrian war. Patterns. 2021;2(11):100369. doi:10.1016/j.patter.2021.100369
+
+\bibitem{b20}Z. Yang, D. Yang, C. Dyer, X. He, A. Smola, and E. Hovy, “Hierarchical Attention Networks for Document Classification,” in Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, San Diego, California: Association for Computational Linguistics, 2016, pp. 1480–1489. doi: 10.18653/v1/N16-1174.
+
+\bibitem{b21}J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, “BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.” arXiv, May 24, 2019. doi: 10.48550/arXiv.1810.04805.
+
+\bibitem{b22}Vaswani A, Shazeer N, Parmar N, et al. Attention Is All You Need. Published online August 1, 2023. doi:10.48550/arXiv.1706.03762
+
+\bibitem{b23}Y. Liu et al., “RoBERTa: A Robustly Optimized BERT Pretraining Approach.” arXiv, Jul. 26, 2019. doi: 10.48550/arXiv.1907.11692.
+
+\bibitem{b24}P. He, X. Liu, J. Gao, and W. Chen, “DeBERTa: Decoding-enhanced BERT with Disentangled Attention.” arXiv, Oct. 06, 2021. doi: 10.48550/arXiv.2006.03654.
+
+\bibitem{b25}Z. Yang, Z. Dai, Y. Yang, J. Carbonell, R. R. Salakhutdinov, and Q. V. Le, “XLNet: Generalized Autoregressive Pretraining for Language Understanding,” in Advances in Neural Information Processing Systems, Curran Associates, Inc., 2019. Accessed: Jul. 12, 2023. [Online]. Available: https://papers.nips.cc/paper\_files/paper/2019/hash/dc6a7e655d7e5840e\\66733e9ee67cc69-Abstract.html
+
+\bibitem{b26}New and improved embedding model. Accessed March 25, 2024. https://openai.com/blog/new-and-improved-embedding-model
+
+\bibitem{b27}Gemini Team, Anil R, Borgeaud S, et al. Gemini: A Family of Highly Capable Multimodal Models. Published online December 18, 2023. doi:10.48550/arXiv.2312.11805
+
+\bibitem{b28}Maaten L van der, Hinton G. Visualizing Data using t-SNE. J Mach Learn Res. 2008;9(86):2579-2605.
+
+\bibitem{b29}OpenAI, “GPT-4 Technical Report.” arXiv, Mar. 27, 2023. Accessed: Dec. 04, 2023. [Online]. Available: http://arxiv.org/abs/2303.08774
+
+\bibitem{b30}Kundu R, Basak H, Singh PK, Ahmadian A, Ferrara M, Sarkar R. Fuzzy rank-based fusion of CNN models using Gompertz function for screening COVID-19 CT-scans. Sci Rep. 2021;11(1):14133. doi:10.1038/s41598-021-93658-y
+
+\bibitem{b31}F. Pedregosa et al., “Scikit-learn: Machine Learning in Python,” J. Mach. Learn. Res., vol. 12, no. 85, pp. 2825–2830, 2011.
+
+\bibitem{b32}Loshchilov I, Hutter F. Decoupled Weight Decay Regularization. Published online January 4, 2019. doi:10.48550/arXiv.1711.05101
+
+\bibitem{b33}richliao/textClassifier: Text classifier for Hierarchical Attention Networks for Document Classification. Accessed May 4, 2024. https://github.com/richliao/textClassifier/tree/master
+
+\bibitem{b34}I. Chalkidis et al., “LexGLUE: A Benchmark Dataset for Legal Language Understanding in English,” in Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), Dublin, Ireland: Association for Computational Linguistics, May 2022, pp. 4310–4330. doi: 10.18653/v1/2022.acl-long.297.
+
+\bibitem{b35}Touvron H, Lavril T, Izacard G, et al. LLaMA: Open and Efficient Foundation Language Models. Published online February 27, 2023. doi:10.48550/arXiv.2302.13971
+
+\bibitem{b36}Stanford CRFM. Accessed May 1, 2024. https://crfm.stanford.edu/2023/03/13/alpaca.html
+
+\bibitem{b37}Chen Z, Du Y, Hu J, et al. Mapping medical image-text to a joint space via masked modeling. Med Image Anal. 2024;91:103018. doi:10.1016/j.media.2023.103018
+
+\bibitem{b38}Shorten C, Khoshgoftaar TM, Furht B. Text Data Augmentation for Deep Learning. J Big Data. 2021;8(1):101. doi:10.1186/s40537-021-00492-0
+
+\bibitem{b39}Chintagunta B, Katariya N, Amatriain X, Kannan A. Medically Aware GPT-3 as a Data Generator for Medical Dialogue Summarization. In: Proceedings of the Second Workshop on Natural Language Processing for Medical Conversations. Association for Computational Linguistics; 2021:66-76. doi:10.18653/v1/2021.nlpmc-1.9
+\end{thebibliography}
+%========================================================================
+
+% \chapter*{Supplemental information}
+% \addcontentsline{toc}{chapter}{Supplemental information}
+% \section*{A. Model architecture}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.85\linewidth]{img/HAN.png}
+%     \caption{Architecture of Hierarchical Attention Networks(HAN)\cite{b19}}
+%     \label{fig:HAN architecture}
+% \end{figure}
+
+%=========================================
+% \section*{B. Implementation details}
+% We summarized the detailed information about implementation. For TF-IDF feature generations, we used the configurations illustrated in Table \ref{tab:TFIDF_detail}. Regarding implementations of the BERT series, we summarize the parameter settings as Table \ref{tab:BERT_detail} present. We acknowledge that changing parameter settings can result in diverse outcomes. Therefore, we followed the configuration of the previous studies\cite{b5,b31,b33} to fine-tune the pre-trained models used in the experiments. This approach ensures that our models are optimized for performance and reliability across different scenarios and datasets.
+
+% \begin{table}[H]
+%     \centering
+%     \caption{Parameter settings of TF-IDF features extractor.}
+%     \label{tab:TFIDF_detail}
+% \begin{tabular}{|c|c|}
+% \hline
+% Parameter     & Configuration \\ \hline
+% Stop\_words   & None          \\
+% Ngram\_range  & (1, 1)        \\
+% Min\_df       & 1             \\
+% Max\_features & None          \\ \hline
+% \end{tabular}
+% \end{table}
+
+
+% \begin{table}[H]
+%     \centering
+%     \caption{Parameter settings of PLMs.}
+%     \label{tab:BERT_detail}
+% \begin{tabular}{|c|cccc|}
+% \hline
+% Parameter      & BERT     & RoBERTa  & DeBERTa  & XLNet    \\ \hline
+% Max\_length    & 256      & 256      & 256      & 256      \\
+% Batch\_size    & 64       & 64       & 32       & 64       \\
+% Learning\_rate & 2e-5     & 2e-5     & 2e-5     & 2e-5     \\
+% Epochs         & 20       & 20       & 20       & 20       \\
+% Val\_metric    & F1-score & F1-score & F1-score & F1-score \\ \hline
+% \end{tabular}
+% \end{table}
+% \newpage
+%=========================================
+% \section*{C. Confusion matrix}
+% This section shows the remaining confusion matrices, excluding the top four methods mentioned in Chapter 5.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\linewidth]{img/TF+HAN+Ro+De.png}
+%     \caption{Confusion matrix of TF-IDF, HAN, RoBERTa and DeBERTa on test dataset.}
+%     \label{fig:Supplementary_CM1}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\linewidth]{img/Gemini+GPT4+EF.png}
+%     \caption{Confusion matrix of Gemini+SVM, GPT-4 and engineered features methods on test dataset.}
+%     \label{fig:Supplementary_CM2}
+% \end{figure}
+
+% =========================================================================
+
+% NYCU參考資料:
+% 臺灣博碩士論文知識加值系統 https://ndltd.ncl.edu.tw/
+% 學位論文編寫事項 https://www.lib.nycu.edu.tw/custom_label?menu=64&lid=6
+% 各學院、系所學位中英文名稱 https://aa.nycu.edu.tw/reg/統計資訊/
+% 圖書館FB: https://www.facebook.com/NYCULIB
+
+
+
+\end{CJK*}
+\balance
+
+\end{document}

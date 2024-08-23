@@ -1,0 +1,36 @@
+
+  \begin{center}
+	\large
+    \begin{singlespace}    
+      \textbf{\chineseTitle{}} \\[0.5cm]
+    \end{singlespace}
+    
+    \begin{singlespace}    
+
+    學生：\studentCnName  \hspace{2.5cm}  指導教授：\advisorCnName \hspace{0.1cm} 博士 \\
+    \ifdefined\advisorCnNameB % 如果有共同指導教授
+    \hspace{8cm}  \advisorCnNameB ~ 博士 \\
+    \fi
+    \end{singlespace}
+
+    \vspace{0.5cm}
+
+    國立陽明交通大學\ \DepartInstitCnName\ \iftoggle{iamphd}{博士班}{碩士班} \\[0.5cm]
+    \textbf{摘~~~~~~~~要} \\[0.5cm]
+
+  \end{center}
+  \normalsize 
+  %\hspace{0.75cm}
+
+在COVID-19疫情期間，許多假消息在網路上流傳，造成大眾對疫情預防政策的不信與誤解。即便在疫情緩解後，與長新冠後遺症以及二次確診相關的真假訊息辨識仍有其重要性。
+
+近年自然語言處理(NLP)技術出現重大突破，如基於注意力機制(Attention)的預訓練模型(PLM)BERT和大型語言模型(LLM)ChatGPT，在文本理解上做為可靠的工具做出許多貢獻，因此本研究提出利用深度學習方法進行長新冠相關假訊息分類。
+
+實驗首先蒐集網路上之公開資料集，並進行文本前處理來去除雜訊，提升資料集品質。隨後利用基於注意力機制的BERT及XLNet等模型進行訓練。為了進一步提升辨識效果，後續採用基於模糊排名的集成方法，結合多個模型的優勢。本研究也將提出的方法與傳統TF-IDF方法及其他SOTA模型進行比較，例如基於LLM的嵌入模型方法，以評估其在假消息辨識方面的性能表現。
+
+實驗結果顯示透過模糊排名集成方法結合多個注意力機制模型，F1-score能達到96.03\%，優於其他文本分類模型，闡明此種集成方法配合開源語言模型能夠取得優異表現，有效提高模型準確度。此外實驗結果也可看出，利用單純文本內容進行文本分類可以取得很好的準確度。
+
+  \vspace{1cm}
+
+  % 中文摘要及關鍵詞 5-7 個 
+  \textbf{關鍵字：}注意力機制, 假消息辨識,  COVID-19,  預訓練語言模型(PLMs), 模糊排名

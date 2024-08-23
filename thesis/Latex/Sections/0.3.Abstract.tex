@@ -1,0 +1,40 @@
+\begin{center}
+    \large
+    
+    \begin{singlespace}
+        \textbf{\englishTitle{}} \\[0.5cm]
+    \end{singlespace}
+    
+    \begin{singlespace}
+        Student : \studentEnName{}  \hspace{1.0cm} 
+        % 兩個指導教授要寫 Advisors
+        \ifdefined\advisorCnNameB
+            Advisors: Dr.\, \advisorEnName \\
+            \hspace{8.2cm} Dr.\, \advisorEnNameB  \\
+        \else
+            Advisor: Dr.\, \advisorEnName \\
+        \fi
+    \end{singlespace}
+    
+    \vspace{0.3cm}
+    \begin{singlespace}
+        \DepartInstitEnName\\
+        National Yang Ming Chiao Tung University\\[0.3cm]
+    \end{singlespace}
+    
+    \textbf{Abstract} \\[0.3cm]
+
+\end{center}
+
+\normalsize 
+
+During the COVID-19 pandemic, fake news spread on social media, causing the public to distrust and misunderstand epidemic prevention policies. Even after the pandemic has eased, it is still important to identify the correct information related to the long-term effects of COVID-19.
+In recent years, significant breakthroughs in Natural Language Processing (NLP) technologies, such as Pre-trained Language Models (PLM) like BERT based on the attention mechanism and large-scale language models like ChatGPT, have contributed significantly to natural language understanding tasks. Therefore, this study proposes using deep learning methods for detecting false information related to the long-term impacts of COVID-19.
+The public datasets were collected from the internet and a text preprocessing approach was used to remove noise and improve dataset quality. Afterward, the models based on the attention mechanism, such as BERT and XLNet, were trained on the collected datasets. A fuzzy rank-based ensemble method was adopted to improve classification performance further, combining the strengths of multiple models. This study also compared the proposed method with traditional TF-IDF methods and other state-of-the-art (SOTA) models, such as embedding models based on large-scale language models (LLM), to evaluate their performance in misinformation detection.
+The experimental results show that combining multiple attention-based models using the fuzzy rank ensemble method achieved an F1-score of 96.03\%, exceeding other text classification models. This demonstrates that this integration method, combined with open-source language models, can improve model performance and achieve outstanding accuracy. Additionally, the results of the experiment also show that using only text content for text classification can achieve high accuracy.
+
+
+\vspace{0.5cm}
+
+% 5-7 Keywords (English) 
+\textbf{Keywords: attention mechanism, misinformation,  COVID-19,  pre-train language models(PLMs), fuzzy ranks.} 
